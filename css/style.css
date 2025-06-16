@@ -40,23 +40,33 @@ h1, h2, h3, h4, h5, h6 {
 
 /* CSS Grid Layout */
 
+body,
+html {
+    height: 100%;
+}
+
 .container {
+    height: 100%;
     display: grid;
     grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr 4fr ;
     grid-template-areas: 
     "sidebar header"
-    "sidebar main-content"
-    ;
+    "sidebar main-content";
+    
 }
 
 .header {
+    background-color: #006157; /* Testing */
     grid-area: header;
 }
 
 .sidebar {
+    background-color: #005B94; /* Testing */
     grid-area: sidebar;
 }
 
 .main-content {
+    background-color: #642cde; /* Testing */
     grid-area: main-content;
 }
