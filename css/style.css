@@ -59,6 +59,18 @@ h6 {
   isolation: isolate;
 }
 
+/* CSS Variables */
+
+:root {
+  --gray-bg: #e2e8f0;
+  --white-bg: #ffffff;
+  --blue-bg: #1992d4;
+  --yellow-bg: #f0b429;
+  --small-icon-size: 25px;
+  --medium-icon-size: 45px;
+  --big-icon-size: 65px;
+}
+
 /* CSS Grid Layout */
 
 body,
@@ -258,15 +270,9 @@ html {
   grid-area: trending;
 }
 
-/* Content layout */
 
-:root {
-  --gray-bg: #e2e8f0;
-  --white-bg: #ffffff;
-  --small-icon-size: 25px;
-  --medium-icon-size: 45px;
-  --big-icon-size: 65px;
-}
+
+/* Content Styiling */
 
 /* Header Styling */
 
@@ -310,5 +316,7 @@ html {
 .user-logo-info {
     height: var(--big-icon-size);
 }
+
+
 
 
