@@ -53,13 +53,41 @@ html {
     grid-template-areas: 
     "sidebar header"
     "sidebar main-content";
-    
+
 }
+
+/* Header Section */
 
 .header {
     background-color: #006157; /* Testing */
     grid-area: header;
+    /* Nested Grid for header layout */
+    display: grid; 
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: 
+    "search-bar search-bar"
+    "user-info buttons";
 }
+
+.search-bar {
+    background-color: #345552; /* Testing */
+    grid-area: search-bar;
+}
+
+.user-info {
+    background-color: #006157; /* Testing */
+    grid-area: user-info;
+}
+
+.buttons {
+    background-color: #0ecfbc; /* Testing */
+    grid-area: buttons;
+}
+
+
+
+
+
 
 .sidebar {
     background-color: #005B94; /* Testing */
