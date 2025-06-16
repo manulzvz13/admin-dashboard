@@ -72,6 +72,20 @@ html {
 .search-bar {
     background-color: #345552; /* Testing */
     grid-area: search-bar;
+    /* Nested Grid for search-bar layout */
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: "search user";
+}
+
+.search {
+    background-color: #3f6764; /* Testing */
+    grid-area: search;
+}
+
+.user {
+    background-color: #4d7e7a; /* Testing */
+    grid-area: user;    
 }
 
 .user-info {
