@@ -136,8 +136,26 @@ html {
 }
 
 .user-info {
-  background-color: #006157; /* Testing */
   grid-area: user-info;
+   /* Nested Grid for user-info (search-bar) layout */
+  display: grid;
+  grid-template-columns: 1fr 7fr;
+  grid-template-rows: 1fr 1fr;
+  grid-template-areas: 
+    "user-logo-info greeting-1"
+    "user-logo-info greeting-2";
+}
+
+.user-logo-info {
+    grid-area: user-logo-info;
+}
+
+.greeting-1 {
+    grid-area: greeting-1;
+}
+
+.greeting-2 {
+    grid-area: greeting-2;
 }
 
 .buttons {
@@ -247,6 +265,7 @@ html {
   --white-bg: #ffffff;
   --small-icon-size: 25px;
   --medium-icon-size: 45px;
+  --big-icon-size: 65px;
 }
 
 /* Header Styling */
@@ -285,3 +304,11 @@ html {
 .user-logo {
     height: var(--medium-icon-size);
 }
+
+/* User Info Item */
+
+.user-logo-info {
+    height: var(--big-icon-size);
+}
+
+
