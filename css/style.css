@@ -1,6 +1,8 @@
 /* Reset CSS by Justin Comeau */
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -13,16 +15,29 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%;
 }
 
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
   font: inherit;
 }
 
-p, h1, h2, h3, h4, h5, h6 {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   overflow-wrap: break-word;
 }
 
@@ -30,11 +45,17 @@ p {
   text-wrap: pretty;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   text-wrap: balance;
 }
 
-#root, #__next {
+#root,
+#__next {
   isolation: isolate;
 }
 
@@ -42,153 +63,194 @@ h1, h2, h3, h4, h5, h6 {
 
 body,
 html {
-    height: 100%;
+  height: 100%;
 }
 
 .container {
-    height: 100%;
-    display: grid;
-    grid-template-columns: 1fr 4fr;
-    grid-template-rows: 1fr 4fr;
-    grid-template-areas: 
-        "sidebar header"
-        "sidebar main-content";
-
+  height: 100%;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 1fr 4fr;
+  grid-template-areas:
+    "sidebar header"
+    "sidebar main-content";
 }
 
 /* Header Section */
 
 .header {
-    background-color: #006157; /* Testing */
-    grid-area: header;
-    /* Nested Grid for header layout */
-    display: grid; 
-    grid-template-columns: 2fr 1fr;
-    grid-template-areas: 
-        "search-bar search-bar"
-        "user-info buttons";
+  grid-area: header;
+  /* Nested Grid for header layout */
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-areas:
+    "search-bar search-bar"
+    "user-info buttons";
 }
 
 .search-bar {
-    background-color: #345552; /* Testing */
-    grid-area: search-bar;
-    /* Nested Grid for search-bar layout */
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-areas: "search user";
+  grid-area: search-bar;
+  /* Nested Grid for search-bar layout */
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-areas: "search user";
 }
 
 .search {
-    background-color: #3f6764; /* Testing */
-    grid-area: search;
+  grid-area: search;
+  /* Nested Grid for search (form) layout */
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  grid-template-areas: "search-icon search-form";
+  place-items: center;
+}
+
+.search-icon {
+    grid-area: search-icon;
+}
+
+.search-form {
+    grid-area: search-form;
 }
 
 .user {
-    background-color: #4d7e7a; /* Testing */
-    grid-area: user;    
+  background-color: #4d7e7a; /* Testing */
+  grid-area: user;
 }
 
 .user-info {
-    background-color: #006157; /* Testing */
-    grid-area: user-info;
+  background-color: #006157; /* Testing */
+  grid-area: user-info;
 }
 
 .buttons {
-    background-color: #0ecfbc; /* Testing */
-    grid-area: buttons;
+  background-color: #0ecfbc; /* Testing */
+  grid-area: buttons;
 }
 
 /* Sidebar Section */
 
 .sidebar {
-    background-color: #005B94; /* Testing */
-    grid-area: sidebar;
-    /* Nested Grid for sidebar layout */
-    display: grid;
-    grid-template-rows: 1fr 3fr 4fr;
-    grid-template-areas: 
-        "logo"  
-        "navigation"
-        "settings";
+  background-color: #005b94; /* Testing */
+  grid-area: sidebar;
+  /* Nested Grid for sidebar layout */
+  display: grid;
+  grid-template-rows: 1fr 3fr 4fr;
+  grid-template-areas:
+    "logo"
+    "navigation"
+    "settings";
 }
 
 .logo {
-    background-color: #092435; /* Testing */
-    grid-area: logo;
+  background-color: #092435; /* Testing */
+  grid-area: logo;
 }
 
 .navigation {
-    background-color: #7598ad; /* Testing */
-    grid-area: navigation;
+  background-color: #7598ad; /* Testing */
+  grid-area: navigation;
 }
 
 .settings {
-    background-color: #1e2e38; /* Testing */
-    grid-area: settings;
+  background-color: #1e2e38; /* Testing */
+  grid-area: settings;
 }
 
 /* Main Content Section */
 
 .main-content {
-    background-color: #642cde; /* Testing */
-    grid-area: main-content; 
-    /* Nested Grid for Main content layout */
-    display: grid;
-    grid-template-columns: 3fr 1fr;
-    grid-template-areas: 
-        "projects announcements"
-        "projects trending";
+  background-color: #642cde; /* Testing */
+  grid-area: main-content;
+  /* Nested Grid for Main content layout */
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-areas:
+    "projects announcements"
+    "projects trending";
 }
 
 .projects {
-    background-color: #9d7ee0; /* Testing */
-    grid-area: projects;
-    /* Nested Grid for Projects layout */
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-areas: 
-        "project-1 project-2"
-        "project-3 project-4"
-        "project-5 project-6";
+  background-color: #9d7ee0; /* Testing */
+  grid-area: projects;
+  /* Nested Grid for Projects layout */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+    "project-1 project-2"
+    "project-3 project-4"
+    "project-5 project-6";
 }
 
 .project-1 {
-    background-color: #2f0689; /* Testing */
-    grid-area: project-1;
+  background-color: #2f0689; /* Testing */
+  grid-area: project-1;
 }
 
 .project-2 {
-    background-color: #470dc6; /* Testing */
-    grid-area: project-2;
+  background-color: #470dc6; /* Testing */
+  grid-area: project-2;
 }
 
 .project-3 {
-    background-color: #4e10d2; /* Testing */
-    grid-area: project-3;
+  background-color: #4e10d2; /* Testing */
+  grid-area: project-3;
 }
 
 .project-4 {
-    background-color: #5312df; /* Testing */
-    grid-area: project-4;
+  background-color: #5312df; /* Testing */
+  grid-area: project-4;
 }
 
 .project-5 {
-    background-color: #6e31f0; /* Testing */
-    grid-area: project-5;
+  background-color: #6e31f0; /* Testing */
+  grid-area: project-5;
 }
 
 .project-6 {
-    background-color: #9666ff; /* Testing */
-    grid-area: project-6;
+  background-color: #9666ff; /* Testing */
+  grid-area: project-6;
 }
 
 .announcements {
-    background-color: #473471; /* Testing */
-    grid-area: announcements;
+  background-color: #473471; /* Testing */
+  grid-area: announcements;
 }
 
 .trending {
-    background-color: #642cde; /* Testing */
-    grid-area: trending;
+  background-color: #642cde; /* Testing */
+  grid-area: trending;
+}
+
+/* Content layout */
+
+:root {
+  --gray-bg: #e2e8f0;
+  --white-bg: #ffffff;
+  --small-icon-size: 25px;
+}
+
+/* Header Styling */
+
+.header {
+    background-color: var(--white-bg);
+}
+
+/* Searchbar Styling */
+
+.search-icon {
+  height: var(--small-icon-size);
+}
+
+.search-form {
+    width: 100%;
+}
+
+.search-input {
+  background: var(--gray-bg);
+  border: none;
+  border-radius: 20px;
+  padding: 0.5em 1em;
+  width: 100%;
 }
