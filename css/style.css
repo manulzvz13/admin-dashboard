@@ -149,30 +149,38 @@ html {
 
 .user-info {
   grid-area: user-info;
-   /* Nested Grid for user-info (search-bar) layout */
+  /* Nested Grid for user-info (search-bar) layout */
   display: grid;
   grid-template-columns: 1fr 7fr;
   grid-template-rows: 1fr 1fr;
-  grid-template-areas: 
+  grid-template-areas:
     "user-logo-info greeting-1"
     "user-logo-info greeting-2";
 }
 
 .user-logo-info {
-    grid-area: user-logo-info;
+  grid-area: user-logo-info;
 }
 
 .greeting-1 {
-    grid-area: greeting-1;
+  grid-area: greeting-1;
 }
 
 .greeting-2 {
-    grid-area: greeting-2;
+  grid-area: greeting-2;
 }
 
 .buttons {
-  background-color: #0ecfbc; /* Testing */
   grid-area: buttons;
+  /* Nested Grid for buttons(search-bar) layout */
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-areas: "button button button";
+  gap: 1em;
+}
+
+.button {
+  grid-area: button;
 }
 
 /* Sidebar Section */
@@ -270,8 +278,6 @@ html {
   grid-area: trending;
 }
 
-
-
 /* Content Styiling */
 
 /* Header Styling */
@@ -308,15 +314,31 @@ html {
 }
 
 .user-logo {
-    height: var(--medium-icon-size);
+  height: var(--medium-icon-size);
 }
 
 /* User Info Item */
 
 .user-logo-info {
-    height: var(--big-icon-size);
+  height: var(--big-icon-size);
 }
 
+/* Buttons Item */
 
+.buttons {
+    padding-right: 50px;
+}
 
-
+.buttons button {
+  background-color: var(--blue-bg);
+  color: var(--white-bg);
+  border: none;
+  border-radius: 20px;
+  padding: 0.5em 1.5em;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  align-self: center; 
+  height: 40px; 
+  width: auto;
+}
