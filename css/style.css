@@ -51,8 +51,8 @@ html {
     grid-template-columns: 1fr 4fr;
     grid-template-rows: 1fr 4fr;
     grid-template-areas: 
-    "sidebar header"
-    "sidebar main-content";
+        "sidebar header"
+        "sidebar main-content";
 
 }
 
@@ -65,8 +65,8 @@ html {
     display: grid; 
     grid-template-columns: 2fr 1fr;
     grid-template-areas: 
-    "search-bar search-bar"
-    "user-info buttons";
+        "search-bar search-bar"
+        "user-info buttons";
 }
 
 .search-bar {
@@ -93,9 +93,9 @@ html {
     display: grid;
     grid-template-rows: 1fr 3fr 4fr;
     grid-template-areas: 
-    "logo"  
-    "navigation"
-    "settings";
+        "logo"  
+        "navigation"
+        "settings";
 }
 
 .logo {
@@ -113,12 +113,68 @@ html {
     grid-area: settings;
 }
 
-
-
-
+/* Main Content Section */
 
 .main-content {
     background-color: #642cde; /* Testing */
-    grid-area: main-content;
-    
+    grid-area: main-content; 
+    /* Nested Grid for Main content layout */
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    grid-template-areas: 
+        "projects announcements"
+        "projects trending";
+}
+
+.projects {
+    background-color: #9d7ee0; /* Testing */
+    grid-area: projects;
+    /* Nested Grid for Projects layout */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: 
+        "project-1 project-2"
+        "project-3 project-4"
+        "project-5 project-6";
+}
+
+.project-1 {
+    background-color: #2f0689; /* Testing */
+    grid-area: project-1;
+}
+
+.project-2 {
+    background-color: #470dc6; /* Testing */
+    grid-area: project-2;
+}
+
+.project-3 {
+    background-color: #4e10d2; /* Testing */
+    grid-area: project-3;
+}
+
+.project-4 {
+    background-color: #5312df; /* Testing */
+    grid-area: project-4;
+}
+
+.project-5 {
+    background-color: #6e31f0; /* Testing */
+    grid-area: project-5;
+}
+
+.project-6 {
+    background-color: #9666ff; /* Testing */
+    grid-area: project-6;
+}
+
+.announcements {
+    background-color: #473471; /* Testing */
+    grid-area: announcements;
+}
+
+.trending {
+    background-color: #642cde; /* Testing */
+    grid-area: trending;
 }
