@@ -107,16 +107,32 @@ html {
 }
 
 .search-icon {
-    grid-area: search-icon;
+  grid-area: search-icon;
 }
 
 .search-form {
-    grid-area: search-form;
+  grid-area: search-form;
 }
 
 .user {
-  background-color: #4d7e7a; /* Testing */
   grid-area: user;
+  /* Nested Grid for user (search-bar) layout */
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
+  grid-template-areas: "bell-icon user-logo user-name";
+  place-items: center;
+}
+
+.bell-icon {
+  grid-area: bell-icon;
+}
+
+.user-logo {
+  grid-area: user-logo;
+}
+
+.user-name {
+  grid-area: user-name;
 }
 
 .user-info {
@@ -230,23 +246,26 @@ html {
   --gray-bg: #e2e8f0;
   --white-bg: #ffffff;
   --small-icon-size: 25px;
+  --medium-icon-size: 45px;
 }
 
 /* Header Styling */
 
 .header {
-    background-color: var(--white-bg);
+  background-color: var(--white-bg);
 }
 
 /* Searchbar Styling */
 
+/* Search Grid Item */
+
 .search-icon {
   height: var(--small-icon-size);
-  margin-left: 15px ;
+  margin-left: 15px;
 }
 
 .search-form {
-    width: 100%;
+  width: 100%;
 }
 
 .search-input {
@@ -255,4 +274,14 @@ html {
   border-radius: 20px;
   padding: 0.5em 1em;
   width: 90%;
+}
+
+/* User Grid Item */
+
+.bell-icon {
+  height: var(--small-icon-size);
+}
+
+.user-logo {
+    height: var(--medium-icon-size);
 }
