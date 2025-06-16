@@ -49,7 +49,7 @@ html {
     height: 100%;
     display: grid;
     grid-template-columns: 1fr 4fr;
-    grid-template-rows: 1fr 4fr ;
+    grid-template-rows: 1fr 4fr;
     grid-template-areas: 
     "sidebar header"
     "sidebar main-content";
@@ -84,17 +84,41 @@ html {
     grid-area: buttons;
 }
 
-
-
-
-
+/* Sidebar Section */
 
 .sidebar {
     background-color: #005B94; /* Testing */
     grid-area: sidebar;
+    /* Nested Grid for sidebar layout */
+    display: grid;
+    grid-template-rows: 1fr 3fr 4fr;
+    grid-template-areas: 
+    "logo"  
+    "navigation"
+    "settings";
 }
+
+.logo {
+    background-color: #092435; /* Testing */
+    grid-area: logo;
+}
+
+.navigation {
+    background-color: #7598ad; /* Testing */
+    grid-area: navigation;
+}
+
+.settings {
+    background-color: #1e2e38; /* Testing */
+    grid-area: settings;
+}
+
+
+
+
 
 .main-content {
     background-color: #642cde; /* Testing */
     grid-area: main-content;
+    
 }
