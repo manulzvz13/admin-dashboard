@@ -103,6 +103,7 @@ html {
   grid-template-columns: 30px 1fr;
   grid-template-areas: "search-icon search-form";
   place-items: center;
+  gap: 15px;
 }
 
 .search-icon {
@@ -241,6 +242,7 @@ html {
 
 .search-icon {
   height: var(--small-icon-size);
+  margin-left: 15px ;
 }
 
 .search-form {
@@ -252,5 +254,5 @@ html {
   border: none;
   border-radius: 20px;
   padding: 0.5em 1em;
-  width: 100%;
+  width: 90%;
 }
