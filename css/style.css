@@ -62,6 +62,7 @@ h6 {
 /* CSS Variables */
 
 :root {
+  --black-bg: #000000;
   --gray-bg: #e2e8f0;
   --white-bg: #ffffff;
   --blue-bg: #1992d4;
@@ -186,20 +187,32 @@ html {
 /* Sidebar Section */
 
 .sidebar {
-  background-color: #005b94; /* Testing */
+  background-color: var(--blue-bg);
   grid-area: sidebar;
   /* Nested Grid for sidebar layout */
   display: grid;
   grid-template-rows: 1fr 3fr 4fr;
   grid-template-areas:
-    "logo"
+    "brand"
     "navigation"
     "settings";
 }
 
-.logo {
-  background-color: #092435; /* Testing */
-  grid-area: logo;
+.brand {
+  grid-area: brand;
+  /* Nested Grid for brand layout */
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  grid-template-areas: "dashboard brand";
+  align-items: center;
+}
+
+.dashboard {
+  grid-area: dashboard;
+}
+
+.brand > p {
+  grid-area: brand;
 }
 
 .navigation {
@@ -291,12 +304,13 @@ html {
 /* Search Grid Item */
 
 .search {
-    padding: 25px 0 25px 50px;
+  padding: 25px 0 25px 50px;
 }
 
 .search-icon {
   height: var(--small-icon-size);
   margin-left: 15px;
+  fill: var(--black-bg);
 }
 
 .search-form {
@@ -314,31 +328,34 @@ html {
 /* User Grid Item */
 
 .user {
-    padding: 25px 0 25px 0;
+  padding: 25px 0 25px 0;
 }
 
 .bell-icon {
   height: var(--small-icon-size);
+  fill: var(--black-bg);
 }
 
 .user-logo {
   height: var(--medium-icon-size);
+  fill: var(--yellow-bg);
 }
 
 /* User Info Item */
 
 .user-info {
-    padding: 0 0 10px 50px;
+  padding: 0 0 10px 50px;
 }
 
 .user-logo-info {
   height: var(--big-icon-size);
+  fill: var(--yellow-bg);
 }
 
 /* Buttons Item */
 
 .buttons {
-    padding: 0 50px 10px 0;
+  padding: 0 50px 10px 0;
 }
 
 .buttons button {
@@ -350,7 +367,22 @@ html {
   font-size: 1em;
   font-weight: 600;
   cursor: pointer;
-  align-self: center; 
-  height: 40px; 
+  align-self: center;
+  height: 40px;
   width: auto;
+}
+
+/* Dashboard Styling */
+
+/* Brand item */
+
+.dashboard {
+  height: var(--medium-icon-size);
+  fill: var(--white-bg);
+  justify-self: center;
+}
+
+.brand > p {
+  color: var(--white-bg);
+  justify-self: start;
 }
