@@ -278,7 +278,7 @@ html {
   grid-area: trending;
 }
 
-/* Content Styiling */
+/* Content Styling */
 
 /* Header Styling */
 
@@ -289,6 +289,10 @@ html {
 /* Searchbar Styling */
 
 /* Search Grid Item */
+
+.search {
+    padding: 25px 0 25px 50px;
+}
 
 .search-icon {
   height: var(--small-icon-size);
@@ -309,6 +313,10 @@ html {
 
 /* User Grid Item */
 
+.user {
+    padding: 25px 0 25px 0;
+}
+
 .bell-icon {
   height: var(--small-icon-size);
 }
@@ -319,6 +327,10 @@ html {
 
 /* User Info Item */
 
+.user-info {
+    padding: 0 0 10px 50px;
+}
+
 .user-logo-info {
   height: var(--big-icon-size);
 }
@@ -326,7 +338,7 @@ html {
 /* Buttons Item */
 
 .buttons {
-    padding-right: 50px;
+    padding: 0 50px 10px 0;
 }
 
 .buttons button {
