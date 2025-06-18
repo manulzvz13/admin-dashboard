@@ -238,7 +238,7 @@ html {
 /* Main Content Section */
 
 .main-content {
-  background-color: #642cde; /* Testing */
+  background-color: var(--gray-bg);
   grid-area: main-content;
   /* Nested Grid for Main content layout */
   display: grid;
@@ -249,46 +249,17 @@ html {
 }
 
 .projects {
-  background-color: #9d7ee0; /* Testing */
   grid-area: projects;
   /* Nested Grid for Projects layout */
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  grid-template-areas:
-    "project-1 project-2"
-    "project-3 project-4"
-    "project-5 project-6";
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  place-items: center;
 }
 
-.project-1 {
-  background-color: #2f0689; /* Testing */
-  grid-area: project-1;
-}
-
-.project-2 {
-  background-color: #470dc6; /* Testing */
-  grid-area: project-2;
-}
-
-.project-3 {
-  background-color: #4e10d2; /* Testing */
-  grid-area: project-3;
-}
-
-.project-4 {
-  background-color: #5312df; /* Testing */
-  grid-area: project-4;
-}
-
-.project-5 {
-  background-color: #6e31f0; /* Testing */
-  grid-area: project-5;
-}
-
-.project-6 {
-  background-color: #9666ff; /* Testing */
-  grid-area: project-6;
+.projects > h3 {
+  justify-self: start;
+  grid-column: 1 / -1;
+  margin-left: 50px;
 }
 
 .announcements {
@@ -420,3 +391,36 @@ li {
 }
 
 
+/* Main Content Section */
+
+/* Projects Grid item */
+
+.projects {
+  margin: 20px;
+}
+
+.projects > div {
+  background:var(--white-bg);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 24px 20px 16px 20px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 220px;
+  max-width: 380px;
+  transition: box-shadow 0.2s;
+  border-left: 6px solid var(--yellow-bg);
+}
+
+.status-buttons {
+  display: flex;
+  margin-top: 8px;
+  margin-left: auto;
+  gap: 15px;
+}
+
+.status-buttons svg {
+  width: var(--small-icon-size);
+}
