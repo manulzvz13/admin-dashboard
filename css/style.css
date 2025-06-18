@@ -219,15 +219,20 @@ html {
   grid-area: navigation;
 }
 
-.nav-row {
+.navigation > ul > .nav-row {
   display: grid;
   grid-template-columns: 60px 1fr;
   align-items: center;
 }
 
 .settings {
-  background-color: #1e2e38; /* Testing */
   grid-area: settings;
+}
+
+.settings > ul > .nav-row {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  align-items: center;
 }
 
 /* Main Content Section */
@@ -392,15 +397,15 @@ html {
   justify-self: start;
 }
 
-/* Navigation item */
+/* Navigation and settings item */
 
-.navigation ul {
+ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.navigation li {
+li {
   margin-bottom: 15px;
 }
 
