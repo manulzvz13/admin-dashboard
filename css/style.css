@@ -268,18 +268,33 @@ html {
   /* Nested Grid for Announcements layout */
   display: grid;
   grid-template-rows: auto 1fr;
-  padding: 20px; 
-  align-content: start; 
+  padding: 20px;
+  align-content: start;
 }
 
 .announcements > h3 {
-  justify-self: start;
   grid-column: 1 / -1;
+  margin-bottom: 0;
+  justify-self: start;
+  align-self: center;
+  margin-left: 10px;
 }
 
 .trending {
-  background-color: #642cde; /* Testing */
   grid-area: trending;
+  /* Nested Grid for Trending layout */
+  display: grid;
+  grid-template-rows: auto 1fr;
+  padding: 20px;
+  align-content: start;
+}
+
+.trending > h3 {
+  grid-column: 1 / -1;
+  margin-bottom: 0;
+  justify-self: start;
+  align-self: center;
+  margin-left: 10px;
 }
 
 /* Content Styling */
@@ -400,7 +415,6 @@ li {
   color: var(--white-bg);
 }
 
-
 /* Main Content Section */
 
 /* Projects Grid item */
@@ -410,9 +424,9 @@ li {
 }
 
 .projects > div {
-  background:var(--white-bg);
+  background: var(--white-bg);
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   padding: 24px 20px 16px 20px;
   margin-bottom: 24px;
   display: flex;
@@ -437,27 +451,58 @@ li {
 
 /* Announcements Grid item */
 
-.announcements h3 {
-  grid-column: 1 / -1; 
-  margin-bottom: 0; 
-  justify-self: start;
-  align-self: center;
-  margin-left: 10px;
-}
-
 .announcements-card {
-  background-color: var(--white-bg); 
+  background-color: var(--white-bg);
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  padding: 20px; 
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 20px;
   display: flex;
   flex-direction: column;
-  gap: 20px; 
-  min-height: 0; 
+  gap: 20px;
+  min-height: 0;
   overflow-y: auto;
 }
 
 .announcements-card > div {
   padding-bottom: 10px;
   border-bottom: 2px solid var(--border-color);
+}
+
+/* Trending Grid item */
+
+.trending-card {
+  background-color: var(--white-bg);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.trending-card > div {
+  display: flex;
+  align-items: center;
+}
+
+.trending-card > div > svg {
+  width: var(--medium-icon-size);
+}
+
+.user-1 > svg {
+  fill: #e0f1fd;
+}
+
+.user-2 > svg {
+  fill: var(--yellow-bg);
+}
+
+.user-3 > svg {
+  fill: #a3a3a3;
+}
+
+.user-4 > svg {
+  fill: #fda4af;
 }
