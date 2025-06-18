@@ -4,10 +4,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
-}
-
-* {
-  margin: 0;
+   margin: 0;
 }
 
 body {
@@ -15,19 +12,12 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-img,
-picture,
-video,
-canvas,
 svg {
   display: block;
   max-width: 100%;
 }
 
-input,
-button,
-textarea,
-select {
+button {
   font: inherit;
 }
 
@@ -52,11 +42,6 @@ h4,
 h5,
 h6 {
   text-wrap: balance;
-}
-
-#root,
-#__next {
-  isolation: isolate;
 }
 
 /* CSS Variables */
@@ -84,7 +69,7 @@ html {
   height: 100%;
   display: grid;
   grid-template-columns: 1fr 4fr;
-  grid-template-rows: 1fr 4fr;
+  grid-template-rows: 0.8fr 4.2fr; /* Heigh ratio of header - content */
   grid-template-areas:
     "sidebar header"
     "sidebar main-content";
@@ -244,23 +229,31 @@ html {
   /* Nested Grid for Main content layout */
   display: grid;
   grid-template-columns: 3fr 1fr;
+  grid-template-rows: repeat(auto-fit, minmax(0, auto));
   grid-template-areas:
     "projects announcements"
     "projects trending";
+  overflow-y: auto; /* Checking if neccesary */
+  position: relative;
 }
 
 .projects {
   grid-area: projects;
   /* Nested Grid for Projects layout */
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-  place-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(390px, 1fr));
+  grid-template-rows: auto;
+  gap: 15px;
+  row-gap: 30px;
+  align-items: start;
+  justify-items:center ;
+  margin-top: 48px;
 }
 
-.projects > h3 {
-  justify-self: start;
-  grid-column: 1 / -1;
-  margin-left: 30px;
+.main-content > h3 { 
+  position: absolute;
+  top: 19px;
+  left: 30px;
 }
 
 .announcements {
@@ -268,16 +261,15 @@ html {
   /* Nested Grid for Announcements layout */
   display: grid;
   grid-template-rows: auto 1fr;
-  padding: 20px;
   align-content: start;
+  margin: 0 30px 20px 0;
 }
 
 .announcements > h3 {
   grid-column: 1 / -1;
-  margin-bottom: 0;
   justify-self: start;
   align-self: center;
-  margin-left: 10px;
+  margin: 20px 0 0 5px;
 }
 
 .trending {
@@ -285,16 +277,17 @@ html {
   /* Nested Grid for Trending layout */
   display: grid;
   grid-template-rows: auto 1fr;
-  padding: 20px;
   align-content: start;
+  margin: 0 30px 8px 0;
 }
 
 .trending > h3 {
   grid-column: 1 / -1;
   margin-bottom: 0;
+  padding: 0;
   justify-self: start;
   align-self: center;
-  margin-left: 10px;
+  margin: 20px 0 0 5px;
 }
 
 /* Content Styling */
@@ -310,12 +303,11 @@ html {
 /* Search Grid Item */
 
 .search {
-  padding: 25px 0 25px 50px;
+  padding: 15px 0 15px 50px;
 }
 
 .search-icon {
   height: var(--small-icon-size);
-  margin-left: 15px;
   fill: var(--black-bg);
 }
 
@@ -334,7 +326,7 @@ html {
 /* User Grid Item */
 
 .user {
-  padding: 25px 0 25px 0;
+  padding: 15px 0 15px 0; 
 }
 
 .bell-icon {
@@ -350,7 +342,7 @@ html {
 /* User Info Item */
 
 .user-info {
-  padding: 0 0 10px 50px;
+  padding: 0 0 5px 50px;
 }
 
 .user-logo-info {
@@ -361,7 +353,7 @@ html {
 /* Buttons Item */
 
 .buttons {
-  padding: 0 50px 10px 0;
+  padding: 0 50px 5px 0; 
 }
 
 .buttons button {
@@ -419,20 +411,15 @@ li {
 
 /* Projects Grid item */
 
-.projects {
-  margin: 20px;
-}
-
 .projects > div {
   background: var(--white-bg);
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  padding: 24px 20px 16px 20px;
-  margin-bottom: 24px;
+  padding: 12px 18px 8px 18px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 220px;
+  min-height: clamp(180px, 20vh, 220px);
   max-width: 380px;
   transition: box-shadow 0.2s;
   border-left: 6px solid var(--yellow-bg);
@@ -440,7 +427,7 @@ li {
 
 .status-buttons {
   display: flex;
-  margin-top: 8px;
+  margin-top: 4px;
   margin-left: auto;
   gap: 15px;
 }
