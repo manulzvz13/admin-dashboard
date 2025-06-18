@@ -216,8 +216,13 @@ html {
 }
 
 .navigation {
-  background-color: #7598ad; /* Testing */
   grid-area: navigation;
+}
+
+.nav-row {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  align-items: center;
 }
 
 .settings {
@@ -386,3 +391,27 @@ html {
   color: var(--white-bg);
   justify-self: start;
 }
+
+/* Navigation item */
+
+.navigation ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.navigation li {
+  margin-bottom: 15px;
+}
+
+.nav-row svg {
+  width: var(--small-icon-size);
+  fill: var(--white-bg);
+  justify-self: center;
+}
+
+.nav-row p {
+  color: var(--white-bg);
+}
+
+
