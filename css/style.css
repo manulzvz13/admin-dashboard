@@ -48,13 +48,15 @@
   /* .buttons (inside .header) */
   --buttons-padding: 0 50px 5px 0;
   --buttons-gap: 1em;
-  /* .projects (card container) */
-  --projects-gap: 15px;
-  --projects-row-gap: 30px;
-  --projects-margin-top: 48px;
-  --projects-margin-bottom: 35px;
-  /* .projects > div (individual card) */
-  --project-card-padding: 10px 18px 6px 18px;
+  /* .projects-wrapper (card container) */
+  --projects-wrapper-column-gap: 20px;
+  --projects-wrapper-row-gap: 20px;
+  --projects-wrapper-margin-top: 48px;
+  --projects-wrapper-margin-bottom: 35px;
+  /* .projects-wrapper > div (individual card) */
+  --project-wrapper-card-padding: 10px 18px 6px 18px;
+  /* .projects > h3 */
+  --projects-heading-margin: 20px 0 -50px 15px;
   /* .announcements */
   --announcements-margin: 0 30px 20px 0;
   /* .announcements > h3 */
@@ -63,7 +65,7 @@
   --announcements-card-gap: 20px;
   --announcement-divider-padding: 10px;
   /* .trending */
-  --trending-margin: 0 30px 33px 0;
+  --trending-margin: 0 30px 35px 0;
   /* .trending > h3 */
   --trending-heading-margin: 20px 0 0 5px;
   /* .trending-card */
@@ -263,6 +265,7 @@ h6 {
   grid-template-columns: 3fr 1fr;
   grid-template-rows: repeat(auto-fit, minmax(0, auto));
   grid-template-areas:
+    "projects-heading projects-heading"
     "projects announcements"
     "projects trending";
 }
@@ -270,8 +273,17 @@ h6 {
 .projects {
   grid-area: projects;
   display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.projects > h3 {
+  grid-column: 1/-1;
+}
+
+.projects-wrapper {
+  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(390px, 1fr));
-  grid-template-rows: auto;
+  grid-template-rows: auto 1fr;
 }
 
 .announcements {
@@ -321,7 +333,6 @@ h6 {
   gap: var(--buttons-gap);
   padding: var(--buttons-padding);
 }
-
 
 .search-icon {
   height: var(--icon-size-sm);
@@ -415,29 +426,32 @@ li {
 .main-content {
   background-color: var(--color-gray-light);
   overflow-y: auto;
-  position: relative;
 }
 
 .projects {
-  gap: var(--projects-gap);
-  row-gap: var(--projects-row-gap);
-  margin-top: var(--projects-margin-top);
-  margin-bottom: var(--projects-margin-bottom);
+  padding: 0 30px;
+}
+
+.projects > h3 {
+  justify-self: start;
+  align-self: center;
+  margin: var(--projects-heading-margin); 
+}
+
+.projects-wrapper {
+  column-gap: var(--projects-wrapper-column-gap);
+  row-gap: var(--projects-wrapper-row-gap);
+  margin-top: var(--projects-wrapper-margin-top);
+  margin-bottom: var(--projects-wrapper-margin-bottom);
   align-items: start;
   justify-items: center;
 }
 
-.main-content > h3 {
-  position: absolute;
-  top: 19px;
-  left: 30px;
-}
-
-.projects > div {
+.projects-wrapper > div {
   background: var(--color-white);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);
-  padding: var(--project-card-padding);
+  padding: var(--project-wrapper-card-padding);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -480,7 +494,6 @@ li {
   align-self: center;
   margin: var(--trending-heading-margin);
 }
-
 
 .card {
   background-color: var(--color-white);
@@ -534,4 +547,3 @@ li {
 .user-4 > svg {
   fill: var(--color-pink);
 }
-
