@@ -1,13 +1,95 @@
-/* Reset CSS by Justin Comeau */
+/* ----------------------------
+      *. INDEX
+        1. Variables
+        2. Reset & Base Styles
+        3. Layout CSS Grids
+        4. Components
+---------------------------- */
+
+/* ----------------------------
+      1. Variables
+---------------------------- */
+
+:root {
+  /* Colors */
+  --color-black: #000;
+  --color-white: #fff;
+  --color-gray-light: #e2e8f0;
+  --color-blue: #1992d4;
+  --color-yellow: #f0b429;
+  --color-gray-border: #f2f2f2;
+  --color-gray-dark: #d7dade;
+  --color-pink: #fda4af;
+  --color-blue-light: #e0f1fd;
+  /* Shadow */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  /* Border radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-bg: 20px;
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  /* Icon Size */
+  --icon-size-sm: 25px;
+  --icon-size-md: 45px;
+  --icon-size-bg: 65px;
+  /* Semantic Spacing Variables */
+  /* search (inside .header>.search-bar) */
+  --search-padding: 15px 0 15px 50px;
+  --search-gap: 1em;
+  /* user (inside .header>.search-bar) */
+  --user-padding: 15px 0;
+  /* .user-info (inside .header) */
+  --user-info-padding: 0 0 5px 50px;
+  /* .buttons (inside .header) */
+  --buttons-padding: 0 50px 5px 0;
+  --buttons-gap: 1em;
+  /* .projects (card container) */
+  --projects-gap: 15px;
+  --projects-row-gap: 30px;
+  --projects-margin-top: 48px;
+  --projects-margin-bottom: 35px;
+  /* .projects > div (individual card) */
+  --project-card-padding: 10px 18px 6px 18px;
+  /* .announcements */
+  --announcements-margin: 0 30px 20px 0;
+  /* .announcements > h3 */
+  --announcements-heading-margin: 20px 0 0 5px;
+  /* .announcements-card */
+  --announcements-card-gap: 20px;
+  --announcement-divider-padding: 10px;
+  /* .trending */
+  --trending-margin: 0 30px 33px 0;
+  /* .trending > h3 */
+  --trending-heading-margin: 20px 0 0 5px;
+  /* .trending-card */
+  --trending-card-gap: 20px;
+  /* .card  */
+  --card-padding: 20px;
+}
+
+/* ----------------------------
+      2. Reset & Base Styles
+---------------------------- */
 
 *,
 *::before,
 *::after {
   box-sizing: border-box;
-   margin: 0;
+  margin: 0;
+}
+
+html {
+  height: 100%;
 }
 
 body {
+  height: 100%;
+  font-family: "Roboto", sans-serif;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
@@ -19,16 +101,6 @@ svg {
 
 button {
   font: inherit;
-}
-
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  overflow-wrap: break-word;
 }
 
 p {
@@ -44,42 +116,22 @@ h6 {
   text-wrap: balance;
 }
 
-/* CSS Variables */
-
-:root {
-  --black-bg: #000000;
-  --gray-bg: #e2e8f0;
-  --white-bg: #ffffff;
-  --blue-bg: #1992d4;
-  --yellow-bg: #f0b429;
-  --border-color: #f2f2f2;
-  --small-icon-size: 25px;
-  --medium-icon-size: 45px;
-  --big-icon-size: 65px;
-}
-
-/* CSS Grid Layout */
-
-body,
-html {
-  height: 100%;
-}
+/* ----------------------------
+      3. Layout CSS Grids
+---------------------------- */
 
 .container {
   height: 100%;
   display: grid;
   grid-template-columns: 1fr 4fr;
-  grid-template-rows: 0.8fr 4.2fr; /* Heigh ratio of header - content */
+  grid-template-rows: 0.8fr 4.2fr;
   grid-template-areas:
-    "sidebar header"
-    "sidebar main-content";
+    "side head"
+    "side main";
 }
 
-/* Header Section */
-
 .header {
-  grid-area: header;
-  /* Nested Grid for header layout */
+  grid-area: head;
   display: grid;
   grid-template-columns: 2fr 1fr;
   grid-template-areas:
@@ -89,7 +141,6 @@ html {
 
 .search-bar {
   grid-area: search-bar;
-  /* Nested Grid for search-bar layout */
   display: grid;
   grid-template-columns: 2fr 1fr;
   grid-template-areas: "search user";
@@ -97,12 +148,9 @@ html {
 
 .search {
   grid-area: search;
-  /* Nested Grid for search (form) layout */
   display: grid;
   grid-template-columns: 30px 1fr;
   grid-template-areas: "search-icon search-form";
-  place-items: center;
-  gap: 15px;
 }
 
 .search-icon {
@@ -115,11 +163,9 @@ html {
 
 .user {
   grid-area: user;
-  /* Nested Grid for user (search-bar) layout */
   display: grid;
   grid-template-columns: 1fr 1fr 2fr;
   grid-template-areas: "bell-icon user-logo user-name";
-  place-items: center;
 }
 
 .bell-icon {
@@ -136,7 +182,6 @@ html {
 
 .user-info {
   grid-area: user-info;
-  /* Nested Grid for user-info (search-bar) layout */
   display: grid;
   grid-template-columns: 1fr 7fr;
   grid-template-rows: 1fr 1fr;
@@ -159,23 +204,17 @@ html {
 
 .buttons {
   grid-area: buttons;
-  /* Nested Grid for buttons(search-bar) layout */
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-areas: "button button button";
-  gap: 1em;
 }
 
 .button {
   grid-area: button;
 }
 
-/* Sidebar Section */
-
 .sidebar {
-  background-color: var(--blue-bg);
-  grid-area: sidebar;
-  /* Nested Grid for sidebar layout */
+  grid-area: side;
   display: grid;
   grid-template-rows: 1fr 3fr 4fr;
   grid-template-areas:
@@ -186,11 +225,9 @@ html {
 
 .brand {
   grid-area: brand;
-  /* Nested Grid for brand layout */
   display: grid;
   grid-template-columns: 60px 1fr;
   grid-template-areas: "dashboard brand";
-  align-items: center;
 }
 
 .dashboard {
@@ -218,97 +255,77 @@ html {
 .settings > ul > .nav-row {
   display: grid;
   grid-template-columns: 60px 1fr;
-  align-items: center;
 }
 
-/* Main Content Section */
-
 .main-content {
-  background-color: var(--gray-bg);
-  grid-area: main-content;
-  /* Nested Grid for Main content layout */
+  grid-area: main;
   display: grid;
   grid-template-columns: 3fr 1fr;
   grid-template-rows: repeat(auto-fit, minmax(0, auto));
   grid-template-areas:
     "projects announcements"
     "projects trending";
-  overflow-y: auto; /* Checking if neccesary */
-  position: relative;
 }
 
 .projects {
   grid-area: projects;
-  /* Nested Grid for Projects layout */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(390px, 1fr));
   grid-template-rows: auto;
-  gap: 15px;
-  row-gap: 30px;
-  align-items: start;
-  justify-items:center ;
-  margin-top: 48px;
-}
-
-.main-content > h3 { 
-  position: absolute;
-  top: 19px;
-  left: 30px;
 }
 
 .announcements {
   grid-area: announcements;
-  /* Nested Grid for Announcements layout */
   display: grid;
   grid-template-rows: auto 1fr;
-  align-content: start;
-  margin: 0 30px 20px 0;
 }
 
 .announcements > h3 {
   grid-column: 1 / -1;
-  justify-self: start;
-  align-self: center;
-  margin: 20px 0 0 5px;
 }
 
 .trending {
   grid-area: trending;
-  /* Nested Grid for Trending layout */
   display: grid;
   grid-template-rows: auto 1fr;
-  align-content: start;
-  margin: 0 30px 8px 0;
 }
 
 .trending > h3 {
   grid-column: 1 / -1;
-  margin-bottom: 0;
-  padding: 0;
-  justify-self: start;
-  align-self: center;
-  margin: 20px 0 0 5px;
 }
 
-/* Content Styling */
-
-/* Header Styling */
+/* ----------------------------
+      4. Components
+---------------------------- */
 
 .header {
-  background-color: var(--white-bg);
+  background-color: var(--color-white);
 }
-
-/* Searchbar Styling */
-
-/* Search Grid Item */
 
 .search {
-  padding: 15px 0 15px 50px;
+  place-items: center;
+  padding: var(--search-padding);
+  gap: var(--search-gap);
 }
 
+.user {
+  place-items: center;
+  padding: var(--user-padding);
+}
+
+.user-info {
+  padding: var(--user-info-padding);
+}
+
+.buttons {
+  gap: var(--buttons-gap);
+  padding: var(--buttons-padding);
+}
+
+
 .search-icon {
-  height: var(--small-icon-size);
-  fill: var(--black-bg);
+  height: var(--icon-size-sm);
+  fill: var(--color-black);
 }
 
 .search-form {
@@ -316,51 +333,33 @@ html {
 }
 
 .search-input {
-  background: var(--gray-bg);
+  background: var(--color-gray-light);
   border: none;
-  border-radius: 20px;
+  border-radius: var(--radius-bg);
   padding: 0.5em 1em;
   width: 90%;
 }
 
-/* User Grid Item */
-
-.user {
-  padding: 15px 0 15px 0; 
-}
-
 .bell-icon {
-  height: var(--small-icon-size);
-  fill: var(--black-bg);
+  height: var(--icon-size-sm);
+  fill: var(--color-black);
 }
 
 .user-logo {
-  height: var(--medium-icon-size);
-  fill: var(--yellow-bg);
-}
-
-/* User Info Item */
-
-.user-info {
-  padding: 0 0 5px 50px;
+  height: var(--icon-size-md);
+  fill: var(--color-yellow);
 }
 
 .user-logo-info {
-  height: var(--big-icon-size);
-  fill: var(--yellow-bg);
-}
-
-/* Buttons Item */
-
-.buttons {
-  padding: 0 50px 5px 0; 
+  height: var(--icon-size-bg);
+  fill: var(--color-yellow);
 }
 
 .buttons button {
-  background-color: var(--blue-bg);
-  color: var(--white-bg);
+  background-color: var(--color-blue);
+  color: var(--color-white);
   border: none;
-  border-radius: 20px;
+  border-radius: var(--radius-bg);
   padding: 0.5em 1.5em;
   font-size: 1em;
   font-weight: 600;
@@ -370,22 +369,28 @@ html {
   width: auto;
 }
 
-/* Dashboard Styling */
+.sidebar {
+  background-color: var(--color-blue);
+}
 
-/* Brand item */
+.brand {
+  align-items: center;
+}
+
+.settings > ul > .nav-row {
+  align-items: center;
+}
 
 .dashboard {
-  height: var(--medium-icon-size);
-  fill: var(--white-bg);
+  height: var(--icon-size-md);
+  fill: var(--color-white);
   justify-self: center;
 }
 
 .brand > p {
-  color: var(--white-bg);
+  color: var(--color-white);
   justify-self: start;
 }
-
-/* Navigation and settings item */
 
 ul {
   list-style: none;
@@ -398,31 +403,48 @@ li {
 }
 
 .nav-row svg {
-  width: var(--small-icon-size);
-  fill: var(--white-bg);
+  width: var(--icon-size-sm);
+  fill: var(--color-white);
   justify-self: center;
 }
 
 .nav-row p {
-  color: var(--white-bg);
+  color: var(--color-white);
 }
 
-/* Main Content Section */
+.main-content {
+  background-color: var(--color-gray-light);
+  overflow-y: auto;
+  position: relative;
+}
 
-/* Projects Grid item */
+.projects {
+  gap: var(--projects-gap);
+  row-gap: var(--projects-row-gap);
+  margin-top: var(--projects-margin-top);
+  margin-bottom: var(--projects-margin-bottom);
+  align-items: start;
+  justify-items: center;
+}
+
+.main-content > h3 {
+  position: absolute;
+  top: 19px;
+  left: 30px;
+}
 
 .projects > div {
-  background: var(--white-bg);
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  padding: 12px 18px 8px 18px;
+  background: var(--color-white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: var(--project-card-padding);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   min-height: clamp(180px, 20vh, 220px);
   max-width: 380px;
   transition: box-shadow 0.2s;
-  border-left: 6px solid var(--yellow-bg);
+  border-left: 6px solid var(--color-yellow);
 }
 
 .status-buttons {
@@ -433,38 +455,57 @@ li {
 }
 
 .status-buttons svg {
-  width: var(--small-icon-size);
+  width: var(--icon-size-sm);
 }
 
-/* Announcements Grid item */
+.announcements {
+  align-content: start;
+  margin: var(--announcements-margin);
+}
+
+.announcements > h3 {
+  justify-self: start;
+  align-self: center;
+  margin: var(--announcements-heading-margin);
+}
+
+.trending {
+  align-content: start;
+  margin: var(--trending-margin);
+}
+
+.trending > h3 {
+  padding: 0;
+  justify-self: start;
+  align-self: center;
+  margin: var(--trending-heading-margin);
+}
+
+
+.card {
+  background-color: var(--color-white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: var(--card-padding);
+}
 
 .announcements-card {
-  background-color: var(--white-bg);
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  padding: 20px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: var(--announcements-card-gap);
   min-height: 0;
   overflow-y: auto;
 }
 
 .announcements-card > div {
-  padding-bottom: 10px;
-  border-bottom: 2px solid var(--border-color);
+  padding-bottom: var(--announcement-divider-padding);
+  border-bottom: 2px solid var(--color-gray-border);
 }
 
-/* Trending Grid item */
-
 .trending-card {
-  background-color: var(--white-bg);
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  padding: 20px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: var(--trending-card-gap);
   min-height: 0;
   overflow-y: auto;
 }
@@ -475,21 +516,22 @@ li {
 }
 
 .trending-card > div > svg {
-  width: var(--medium-icon-size);
+  width: var(--icon-size-md);
 }
 
 .user-1 > svg {
-  fill: #e0f1fd;
+  fill: var(--color-gray-light);
 }
 
 .user-2 > svg {
-  fill: var(--yellow-bg);
+  fill: var(--color-yellow);
 }
 
 .user-3 > svg {
-  fill: #a3a3a3;
+  fill: var(--color-gray-dark);
 }
 
 .user-4 > svg {
-  fill: #fda4af;
+  fill: var(--color-pink);
 }
+
